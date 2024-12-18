@@ -32,6 +32,38 @@ Transform:
   - {fileID: 1897521087690353231}
   m_Father: {fileID: 4855706137399119278}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3609908683970108624
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1713081973360015834}
+  m_Layer: 6
+  m_Name: TargetPoints
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1713081973360015834
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3609908683970108624}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 8586988961304404959}
+  m_Father: {fileID: 4855706137399119278}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5568168222408119823
 GameObject:
   m_ObjectHideFlags: 0
@@ -141,6 +173,7 @@ Transform:
   m_Children:
   - {fileID: 1734852414271544660}
   - {fileID: 1955852472268191221}
+  - {fileID: 1713081973360015834}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7495222560859513290
@@ -188,6 +221,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 656fc0bfcd2bc8540b10ce07cceb56ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _cameraTargetTransform: {fileID: 8586988961304404959}
 --- !u!1 &8492974277868792345
 GameObject:
   m_ObjectHideFlags: 0
@@ -221,6 +255,37 @@ Transform:
   - {fileID: 3383703985854996032}
   m_Father: {fileID: 4855706137399119278}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &9158628083031754823
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8586988961304404959}
+  m_Layer: 6
+  m_Name: CameraTargetPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8586988961304404959
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9158628083031754823}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.99999267, z: -0, w: -0.0038287765}
+  m_LocalPosition: {x: 3.95, y: 4.1, z: 5.88}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1713081973360015834}
+  m_LocalEulerAnglesHint: {x: 0, y: -180.439, z: 0}
 --- !u!1001 &2152685563392937380
 PrefabInstance:
   m_ObjectHideFlags: 0
