@@ -1453,8 +1453,11 @@ MonoBehaviour:
   _oeeController: {fileID: 1647847121787059489}
   _orderCodeController: {fileID: 6099751457351545869}
   _materialCodeController: {fileID: 4358223673268610418}
+  _orderAmountController: {fileID: 5920899215017274828}
   _oeeSliderImage: {fileID: 3855201635124528208}
   _oeeText: {fileID: 1852094368328096647}
+  _orderAmountSliderImage: {fileID: 5832544983949250935}
+  _orderCountTxt: {fileID: 3669166107452287871}
   _orderCodeText: {fileID: 8748523862116668779}
   _materialCodeText: {fileID: 8266462445128845022}
 --- !u!1 &6050048980124911942
@@ -1831,7 +1834,7 @@ GameObject:
   - component: {fileID: 7129434669930570415}
   - component: {fileID: 3669166107452287871}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: OrderCountTxt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2174,6 +2177,51 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &8111925839517926265
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6458941158452424167}
+  - component: {fileID: 5920899215017274828}
+  m_Layer: 6
+  m_Name: OrderAmountController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6458941158452424167
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8111925839517926265}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1955852472268191221}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5920899215017274828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8111925839517926265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24a93ad0c648fda438efe98d43f8716f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _orderAmount: 50
 --- !u!1 &8492974277868792345
 GameObject:
   m_ObjectHideFlags: 0
@@ -2207,6 +2255,7 @@ Transform:
   - {fileID: 3383703985854996032}
   - {fileID: 2706521052873145070}
   - {fileID: 2701364491728675724}
+  - {fileID: 6458941158452424167}
   m_Father: {fileID: 4855706137399119278}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8605477596311969252
@@ -2221,7 +2270,7 @@ GameObject:
   - component: {fileID: 3982407261754924991}
   - component: {fileID: 1852094368328096647}
   m_Layer: 5
-  m_Name: RatioTxt
+  m_Name: OEERatioTxt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

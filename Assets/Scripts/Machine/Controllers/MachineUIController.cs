@@ -9,10 +9,15 @@ public class MachineUIController : MonoBehaviour
     [SerializeField] private OEEController _oeeController;
     [SerializeField] private OrderCodeController _orderCodeController;
     [SerializeField] private MaterialCodeController _materialCodeController;
+    [SerializeField] private OrderAmountController _orderAmountController;
 
     [Header("OEE Properties")]
     [SerializeField] private Image _oeeSliderImage;
     [SerializeField] private TMP_Text _oeeText;
+
+    [Header("Order Amount Properties")]
+    [SerializeField] private Image _orderAmountSliderImage;
+    [SerializeField] private TMP_Text _orderCountTxt;
 
     [Header("Order Code Properties")]
     [SerializeField] private TMP_Text _orderCodeText;
@@ -25,6 +30,7 @@ public class MachineUIController : MonoBehaviour
         _oeeController.OnOEEUpdated += OnOEEValueUpdated;
         _orderCodeController.OnOrderCodeUpdated += OnOrderCodeUpdated;
         _materialCodeController.OnMaterialCodeUpdated += OnMaterialCodeUpdated;
+        _orderAmountController.OnOrderAmountUpdated += OnOrderAmountUpdated;
     }
 
     private void OnDestroy()
@@ -32,6 +38,15 @@ public class MachineUIController : MonoBehaviour
         _oeeController.OnOEEUpdated -= OnOEEValueUpdated;
         _orderCodeController.OnOrderCodeUpdated -= OnOrderCodeUpdated;
         _materialCodeController.OnMaterialCodeUpdated -= OnMaterialCodeUpdated;
+        _orderAmountController.OnOrderAmountUpdated -= OnOrderAmountUpdated;
+    }
+
+    private void OnOrderAmountUpdated()
+    {
+        float normal = Mathf.InverseLerp(0, 800, _orderAmountController.GetOrderCount());
+        float bValue = Mathf.Lerp(0, 1, normal);
+        _orderAmountSliderImage.fillAmount = bValue;
+        _orderCountTxt.SetText(_orderAmountController.GetOrderCount() + "/" + 800);
     }
 
     private void OnMaterialCodeUpdated()
@@ -46,7 +61,7 @@ public class MachineUIController : MonoBehaviour
 
     private void OnOEEValueUpdated()
     {
-        _oeeSliderImage.fillAmount = _oeeController.GetCurrentOEE() /100f;
+        _oeeSliderImage.fillAmount = _oeeController.GetCurrentOEE() / 100f;
         _oeeText.SetText(ConstValues.RATIO + _oeeController.GetCurrentOEE());
         Debug.Log("OEEValue is : " + _oeeController.GetCurrentOEE());
     }

@@ -20,11 +20,11 @@ public class MaterialCodeController : MonoBehaviour
     {
         if(keyCode == KeyCode.X)
         {
-            IncreaseOrderCode();
+            IncreaseMaterialCode();
         }
     }
 
-    private void IncreaseOrderCode()
+    private void IncreaseMaterialCode()
     {
         _materialCode++;
         OnMaterialCodeUpdated?.Invoke();
