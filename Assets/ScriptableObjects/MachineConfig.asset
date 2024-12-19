@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 017b26cc09da7e44b9cc3a8062c70b20, type: 3}
+  m_Name: MachineConfig
+  m_EditorClassIdentifier: 
+  _machineData:
+    MachineName: ONO-001/1
+    OrderCode: 2051920
+    MaterialCode: 575
+    OrderCount: 300
+    PropertyTypeToValues:
+      _pairs:
+      - _key: 1
+        _value: 500
+      - _key: 2
+        _value: 800
+      - _key: 3
+        _value: 25
+      - _key: 4
+        _value: 15
+      - _key: 5
+        _value: 0.15
+      - _key: 6
+        _value: 0.25
+    PropertyTypeToNameStr:
+      _pairs:
+      - _key: 1
+        _value: "Ocak S\u0131cakl\u0131\u011F\u0131"
+      - _key: 2
+        _value: "Ocak A\u011F\u0131rl\u0131\u011F\u0131"
+      - _key: 3
+        _value: "\xDCst Kal\u0131p S\u0131cakl\u0131\u011F\u0131"
+      - _key: 4
+        _value: "Alt Kal\u0131p S\u0131cakl\u0131\u011F\u0131"
+      - _key: 5
+        _value: "\u0130vme"
+      - _key: 6
+        _value: "Bas\u0131n\xE7"
+    PropertyTypeToConstValue:
+      _pairs:
+      - _key: 1
+        _value: "\xB0C"
+      - _key: 2
+        _value: kg
+      - _key: 3
+        _value: "\xB0C"
+      - _key: 4
+        _value: "\xB0C"
+      - _key: 5
+        _value: "mm/s\xB2"
+      - _key: 6
+        _value: bar
