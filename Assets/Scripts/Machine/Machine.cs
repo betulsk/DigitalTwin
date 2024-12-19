@@ -1,3 +1,5 @@
+using System;
+using TMPro;
 using UnityEngine;
 using static Events;
 
@@ -5,6 +7,7 @@ public class Machine : MonoBehaviour
 {
 	[SerializeField] private MachineConfig _machineConfig;
 	[SerializeField] private Collider _collider;
+	[SerializeField] private TMP_Text _machineNameText;
 
 	public MachineConfig MachineConfig
     {
@@ -14,6 +17,7 @@ public class Machine : MonoBehaviour
 
     private void Start()
     {
+        SetTextData();
         EventManager<OnCameraMovementStart>.SubscribeToEvent(OnCameraInitPos);
     }
 
@@ -25,10 +29,23 @@ public class Machine : MonoBehaviour
     private void OnCameraInitPos(object sender, OnCameraMovementStart @event)
     {
         ChangeColliderEnableValue(true);
+        ChangeTextEnableValue(true);
     }
 
     public void ChangeColliderEnableValue(bool enableValue)
 	{
 		_collider.enabled = enableValue;
+    }
+
+    private void SetTextData()
+    {
+        _machineNameText.SetText(_machineConfig.MachineData.MachineName);
+        _machineNameText.transform.LookAt(Camera.main.transform);
+        _machineNameText.transform.rotation = Camera.main.transform.rotation;
+    }
+
+    public void ChangeTextEnableValue(bool enableValue)
+    {
+        _machineNameText.enabled = enableValue;
     }
 }

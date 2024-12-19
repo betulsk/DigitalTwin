@@ -7,5 +7,6 @@ public class MachineClickable : BaseClickable
     public override void ClickCustomActions()
     {
         _machine.ChangeColliderEnableValue(false);
+        _machine.ChangeTextEnableValue(false);
     }
 }
