@@ -1,9 +1,11 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using static Events;
 
 public class MachineUIController : MonoBehaviour
 {
+    [SerializeField] private Transform _uITransform;
     [Header("Controllers")]
     [SerializeField] private OEEController _oeeController;
     [SerializeField] private OrderCodeController _orderCodeController;
@@ -26,13 +28,40 @@ public class MachineUIController : MonoBehaviour
 
     private void Awake()
     {
+        EventManager<OnCameraMovementFinished>.SubscribeToEvent(OnCameraMovementFinished);
+        EventManager<OnBackButtonClicked>.SubscribeToEvent(OnCameraMovementStart);
+    }
+
+    private void OnDestroy()
+    {
+        EventManager<OnCameraMovementFinished>.UnsubscribeToEvent(OnCameraMovementFinished);
+        EventManager<OnBackButtonClicked>.UnsubscribeToEvent(OnCameraMovementStart);
+        UnsubscribeToEvents();
+    }
+
+    private void OnCameraMovementFinished(object sender, OnCameraMovementFinished @event)
+    {
+        _uITransform.gameObject.SetActive(true);
+        _uITransform.LookAt(Camera.main.transform);
+        _uITransform.localRotation = Camera.main.transform.rotation;
+        SubscribeToEvents();
+    }
+
+    private void OnCameraMovementStart(object sender, OnBackButtonClicked @event)
+    {
+        _uITransform.gameObject.SetActive(false);
+        UnsubscribeToEvents();
+    }
+
+    private void SubscribeToEvents()
+    {
         _oeeController.OnOEEUpdated += OnOEEValueUpdated;
         _orderCodeController.OnOrderCodeUpdated += OnOrderCodeUpdated;
         _materialCodeController.OnMaterialCodeUpdated += OnMaterialCodeUpdated;
         _orderAmountController.OnOrderAmountUpdated += OnOrderAmountUpdated;
     }
-
-    private void OnDestroy()
+    
+    private void UnsubscribeToEvents()
     {
         _oeeController.OnOEEUpdated -= OnOEEValueUpdated;
         _orderCodeController.OnOrderCodeUpdated -= OnOrderCodeUpdated;
