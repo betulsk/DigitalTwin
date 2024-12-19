@@ -50,12 +50,12 @@ MonoBehaviour:
       - _key: 1
         _value: "\xB0C"
       - _key: 2
-        _value: kg
+        _value: ' kg'
       - _key: 3
         _value: "\xB0C"
       - _key: 4
         _value: "\xB0C"
       - _key: 5
-        _value: "mm/s\xB2"
+        _value: " mm/s\xB2"
       - _key: 6
-        _value: bar
+        _value: ' bar'

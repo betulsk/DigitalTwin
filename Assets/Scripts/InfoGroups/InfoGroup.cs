@@ -4,9 +4,16 @@ using UnityEngine;
 
 public class InfoGroup : MonoBehaviour
 {
-	[SerializeField ] private EMachinePropertyType _infoType;
+	private float _machineValue;
+	private float _minValue;
+	private float _maxValue;
+	private string _properyName;
+	private string _propertyConst;
+
+    [SerializeField ] private EMachinePropertyType _infoType;
 	[SerializeField ] private TMP_Text _propertyNameText;
 	[SerializeField ] private TMP_Text _propertyText;
+	[SerializeField ] private float _coefValue = .1f;
 	
 	public EMachinePropertyType InfoType
 	{
@@ -18,9 +25,27 @@ public class InfoGroup : MonoBehaviour
 	{
 		var keyList = machineData.PropertyTypeToValues.Dictionary.Keys.ToList();
         InfoType = keyList[value];
-		string propertyConst = machineData.PropertyTypeToConstValue.Dictionary[InfoType];
+		_propertyConst = machineData.PropertyTypeToConstValue.Dictionary[InfoType];
+		_machineValue = machineData.PropertyTypeToValues.Dictionary[InfoType];
+		SetMinMaxValue();
+        _propertyNameText.SetText(machineData.PropertyTypeToNameStr.Dictionary[InfoType]);
+        SetDataVisual(_machineValue + _propertyConst);
+    }
 
-		_propertyNameText.text = machineData.PropertyTypeToNameStr.Dictionary[InfoType];
-		_propertyText.SetText(machineData.PropertyTypeToValues.Dictionary[InfoType] + propertyConst);
+    private void SetMinMaxValue()
+    {
+		_minValue = _machineValue - (_machineValue * _coefValue);
+		_maxValue = _machineValue + (_machineValue * _coefValue);
+    }
+
+	private void SetDataVisual(string propertyValueText)
+	{
+        _propertyText.SetText(propertyValueText);
+    }
+
+    public void UpdateDatas()
+	{
+		_machineValue = UnityEngine.Random.Range(_minValue, _maxValue);
+        SetDataVisual(_machineValue + _propertyConst);
     }
 }

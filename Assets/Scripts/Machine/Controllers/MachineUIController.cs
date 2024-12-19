@@ -1,4 +1,3 @@
-using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -63,6 +62,5 @@ public class MachineUIController : MonoBehaviour
     {
         _oeeSliderImage.fillAmount = _oeeController.GetCurrentOEE() / 100f;
         _oeeText.SetText(ConstValues.RATIO + _oeeController.GetCurrentOEE());
-        Debug.Log("OEEValue is : " + _oeeController.GetCurrentOEE());
     }
 }
