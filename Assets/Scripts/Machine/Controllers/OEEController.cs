@@ -18,7 +18,6 @@ public class OEEController : MonoBehaviour
     {
         _wfs = new WaitForSeconds(MINUTE);
         StartCoroutine(SimulateOEE());
-
     }
 
     private void OnDestroy()
@@ -30,10 +29,15 @@ public class OEEController : MonoBehaviour
     {
         while(_isRunning)
         {
-            _currentOEEValue = UnityEngine.Random.Range(_minValue, _maxValue);
-            OnOEEUpdated?.Invoke();
+            SetValue();
             yield return _wfs;
         }
+    }
+
+    private void SetValue()
+    {
+        _currentOEEValue = UnityEngine.Random.Range(_minValue, _maxValue);
+        OnOEEUpdated?.Invoke();
     }
 
     public int GetCurrentOEE()

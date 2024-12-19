@@ -30,6 +30,7 @@ public class MachineUIController : MonoBehaviour
     {
         EventManager<OnCameraMovementFinished>.SubscribeToEvent(OnCameraMovementFinished);
         EventManager<OnBackButtonClicked>.SubscribeToEvent(OnCameraMovementStart);
+        _oeeController.OnOEEUpdated += OnOEEValueUpdated;
     }
 
     private void OnDestroy()
@@ -55,7 +56,6 @@ public class MachineUIController : MonoBehaviour
 
     private void SubscribeToEvents()
     {
-        _oeeController.OnOEEUpdated += OnOEEValueUpdated;
         _orderCodeController.OnOrderCodeUpdated += OnOrderCodeUpdated;
         _materialCodeController.OnMaterialCodeUpdated += OnMaterialCodeUpdated;
         _orderAmountController.OnOrderAmountUpdated += OnOrderAmountUpdated;
