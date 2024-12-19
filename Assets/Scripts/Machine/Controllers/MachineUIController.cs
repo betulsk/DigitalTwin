@@ -1,18 +1,27 @@
-using System.Collections;
-using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MachineUIController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private OEEController _oeeController;
+    [SerializeField] private Image _oeeSliderImage;
+    [SerializeField] private TMP_Text _OEEText;
+
+    private void Awake()
     {
-        
+        _oeeController.OnOEEUpdated += OnOEEValueUpdated;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnDestroy()
     {
-        
+        _oeeController.OnOEEUpdated -= OnOEEValueUpdated;
+    }
+
+    private void OnOEEValueUpdated()
+    {
+        _oeeSliderImage.fillAmount = _oeeController.GetCurrentOEE() /100f;
+        _OEEText.SetText(ConstValues.RATIO + _oeeController.GetCurrentOEE());
+        Debug.Log("OEEValue is : " + _oeeController.GetCurrentOEE());
     }
 }
